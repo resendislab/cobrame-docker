@@ -1,3 +1,7 @@
+[![Docker Stars](https://img.shields.io/docker/stars/cdiener/cobrame.svg)](https://hub.docker.com/r/cdiener/cobrame/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cdiener/cobrame.svg)](https://hub.docker.com/r/cdiener/cobrame/)
+[![](https://images.microbadger.com/badges/image/cdiener/cobrame.svg)](https://microbadger.com/images/cdiener/cobrame "Image size and layers.")
+
 ## Models for metabolism and expression (ME models)
 
 This docker images includes a functional installation of ME models using the

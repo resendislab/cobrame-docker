@@ -8,7 +8,7 @@ USER jovyan
 
 RUN conda update -yq --all && conda install -yq \
     Cython ipython biopython sympy numpy scipy nomkl pandas pytz && \
-    pip install "cobra<=0.5.11"
+    pip install python-libsbml "cobra<=0.5.11" escher
 
 # Build solplex extension
 ENV SOPLEX_VERSION="3.0.0"
@@ -32,12 +32,14 @@ RUN pip install https://github.com/SBRG/cobrame/archive/master.zip \
 # Add example notebooks
 RUN cd /home/jovyan/work && wget \
     https://github.com/SBRG/ecolime/raw/master/ecolime/build_ME_model.ipynb && \
-    wget https://github.com/SBRG/ecolime/raw/master/ecolime/solve_demo.ipynb && \
     ln -s /opt/conda/lib/python3.5/site-packages/ecolime/build_ME_model.py
 
-
-# Clean up
+# Copy examples and clean up
 RUN conda clean -tipsy
 USER root
+COPY getting_started.ipynb /home/jovyan/work
+RUN mkdir /home/jovyan/work/me_models
+COPY iLE1678.pickle /home/jovyan/work/me_models
+RUN chown -R jovyan:jovyan /home/jovyan/work/*
 RUN rm -rf /tmp/*
 USER jovyan

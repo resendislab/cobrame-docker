@@ -40,6 +40,6 @@ USER root
 COPY getting_started.ipynb /home/jovyan/work
 RUN mkdir /home/jovyan/work/me_models
 COPY iLE1678.pickle /home/jovyan/work/me_models
-RUN chown -R jovyan:jovyan /home/jovyan/work/*
+RUN chown -R jovyan:users /home/jovyan/work/*
 RUN rm -rf /tmp/*
 USER jovyan
